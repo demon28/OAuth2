@@ -1,0 +1,65 @@
+﻿@model Winner.Framework.Utils.Model.FuncResult
+@{
+    ViewBag.Title = "英雄会登录";
+}
+
+@section scripts_or_links{
+    <link href="~/assets/css/internal_login.css" rel="stylesheet" />
+    <link href="~/assets/css/grant_mobile_view.css" rel="stylesheet" />
+}
+
+@section scripts{
+}
+<div class="pc-view">
+    <div class="login-container">
+        <div class="login-form">
+            <div class="content">
+                <div class="mobile-image">
+                    <img src="~/assets/images/mobile-image.png" />
+                </div>
+                <div class="form-wrap">
+                    @using (Html.BeginForm())
+                    {
+                        <div class="form-title">登录</div>
+                        <div class="input-field">
+                            <div class="field-name">
+
+                            </div>
+                            <div class="field-value">
+                                <input type="text" maxlength="11" name="user_code" placeholder="用户名" />
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="field-name"></div>
+                            <div class="field-value">
+                                <input type="password" maxlength="16" name="login_pwd" placeholder="登录密码" />
+                            </div>
+                        </div>
+                        <div class="random-code">
+                            <div class="input-field">
+                                <div class="field-name"></div>
+                                <div class="field-value">
+                                    <input type="text" maxlength="6" name="validate_code" placeholder="验证码" />
+                                </div>
+                            </div>
+                            <div class="random-image">
+                                <img src="/images/validatecode" alt="验证码" />
+                            </div>
+                        </div>
+                        <div class="error-message">
+                            @if (Model != null)
+                            {
+                                @Html.Raw(Model.Message)
+                            }
+                        </div>
+                        <div class="button-group">
+                            <input type="hidden" name="takeall" value="1" />
+                            <button type="submit" class="btn-block">登录</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@{ Html.RenderPartial("_partial_mobile_grant");}

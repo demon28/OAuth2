@@ -1,0 +1,21 @@
+﻿body { font-size: 12px; margin: 0; padding: 0; }
+
+ul { list-style: none; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+.container { width: 960px; margin: 0 auto; }
+.row { }
+.row::after, .row::before { display: table; content: ""; }
+.row::after { clear: both; }
+.col-sm-6 { float: left; width: 50%; height: 100%; }
+
+.header { height: 50px; background: #0094ff; line-height: 50px; margin-bottom: 20px; color: #fff; }
+.header .control-links { text-align: right; }
+.header a { color: #fff; }
+.header p { margin: 0; padding: 0; }
+.text-right { text-align: right; }
+.disabled { color: #969696; }
+div.table { display: table; height: 80px; }
+div.table-cell { display: table-cell; }
+img.avatar { max-width: 80px; border-radius: 80px; }
+.profile-info { height: 100%; vertical-align: middle; padding-left: 10px; }
+.user_profile { border: 1px solid #eee; padding: 10px; }
+.user-item { width: 40%; }

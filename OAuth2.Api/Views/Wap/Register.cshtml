@@ -1,0 +1,193 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "注册英雄会";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>注册英雄会</title>
+    <link href="~/assets/css/wap_register.css" rel="stylesheet" />
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://staticfile.aiwsb.com/libs/winner_loading/1.0.0/winner.loading.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-wrap">
+                <img src="~/assets/images/noborder-logo.jpg" alt="英雄会logo" />
+            </div>
+        </div>
+        <form id="form1" name="form1">
+            <div class="content-body">
+                <section>
+                    <div class="inline-form form-row">
+                        <label class="inline-form-name">手机号</label>
+                        <div class="inline-form-control">
+                            <input type="text" name="mobileno" id="mobileno" placeholder="请输入您的手机号码" />
+                        </div>
+                    </div>
+                    <div class="hr referee_group"></div>
+                    <div class="inline-form form-row referee_group">
+                        <label class="inline-form-name">邀请人</label>
+                        <div class="inline-form-control">
+                            <input type="text" name="referee_code" id="referee_code" placeholder="请输入邀请人手机号码" value="@ViewBag.Referee_Code" />
+                        </div>
+                    </div>
+                    <div class="hr referee_group"></div>
+                    <div class="inline-form form-row referee_group">
+                        <label class="inline-form-name">邀请人姓名</label>
+                        <div class="inline-form-control">
+                            <input type="text" name="refer_name" id="refer_name" placeholder="点击验证邀请人账号" readonly="readonly" value="@ViewBag.Referee_Name" />
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="inline-form form-row">
+                        <label class="inline-form-name">验证码</label>
+                        <div class="inline-form-control">
+                            <input type="text" name="validate_code" id="validate_code" placeholder="请输入右侧图形验证码" />
+                            <img src="/images/validatecode" />
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="inline-form form-row">
+                        <label class="inline-form-name">登录密码</label>
+                        <div class="inline-form-control">
+                            <input type="password" name="loginpwd" id="loginpwd" placeholder="请设置您的登录密码" />
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="inline-form form-row">
+                        <label class="inline-form-name">短信验证码</label>
+                        <div class="inline-form-control">
+                            <input type="text" name="sms_code" id="sms_code" class="w9" placeholder="请输入短信验证码" />
+                            <a href="javascript:;" class="" id="btnGetSmsCode">获取验证码</a>
+                        </div>
+
+                    </div>
+                </section>
+                <div class="disclaim">
+                    <label>
+                        <input type="checkbox" name="read_protocol" id="read_protocol" checked="checked" />
+                        <span>我已阅读并同意</span><a href="/help/protocol/register">《英雄会会员协议》</a>
+                    </label>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-red" id="btnRegister">注册</button>                    
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        var referee_code = "@ViewBag.Referee_Code";
+        var referee_name = "@ViewBag.Referee_Name";
+        $(function () {
+            if (referee_code.length > 0) {
+                $(".referee_group").addClass("hide");
+            }
+            //获取短信验证码
+            $("#btnGetSmsCode").click(function () {
+                var mobileno = $("#mobileno").val();
+                if (!mobileno || mobileno.length != 11) {
+                    winner.appmsg.show("请输入有效的手机号码");
+                    return;
+                }
+                winner.loading.show();
+                $.ajax({
+                    url: "/wap/sendvalidcode",
+                    type: "POST",
+                    data: {
+                        "mobileNo": mobileno,
+                    },
+                    success: function (res) {
+                        winner.loading.dismiss();
+                        if (res.Success) {
+                            winner.appmsg.show("验证码已发送到您的手机，请查收！");
+                        } else {
+                            var message = res.Message || "系统开小差，请稍后重试";
+                            winner.appmsg.show(message);
+                        }
+                    },
+                    error: function () {
+                        winner.appmsg.show("系统异常");
+                    }
+                });
+            });
+            //提交注册
+            $("#btnRegister").click(function () {
+                if ($("#read_protocol:checked").length <= 0) {
+                    winner.appmsg.show("请阅读并同意《创客中国会员协议》");
+                    return false;
+                }
+                var refer_code = $("#referee_code").val();
+                var error = 0;
+                var errormsg = "";
+                $("input[type=text],input[type=password]").each(function () {
+                    var val = $(this).val();
+                    if (!val || val.length <= 0) {
+                        error++;
+                        errormsg += $(this).attr("placeholder")+"<br/>";
+                    }
+                });
+                if (error > 0) {
+                    winner.appmsg.show(errormsg);
+                    return false;
+                }
+                winner.loading.show();
+                $.ajax({
+                    url: "/wap/register",
+                    type: "POST",
+                    data: $("#form1").serialize(),
+                    success: function (res) {
+                        winner.loading.dismiss();
+                        if (res.Success) {
+                            window.location.href = "/wap/registersuccess";
+                        } else {
+                            var message = res.Message || "系统开小差了，请重试！";
+                            winner.appmsg.show(message);
+                        }
+                    }, error: function () {
+                        winner.loading.dismiss();
+                        winner.appmsg.show("系统异常");
+                    }
+                });
+            });
+            //验证邀请人账号
+            $("#referee_code").blur(function () {
+                var refer_code = $("#referee_code").val();
+                console.log(refer_code,refer_code.length,!refer_code,refer_code.length<0);
+                if (!refer_code || refer_code.length <= 0) {
+                    winner.appmsg.show("请填写推荐人账号");
+                    return false;
+                }
+                winner.loading.show();
+                $.ajax({
+                    url: "/wap/checkinviter",
+                    type: "POST",
+                    data: {
+                        "refereeCode": refer_code
+                    },
+                    success: function (res) {
+                        winner.loading.dismiss();
+                        if (res.Success) {
+                            var refer_name = res.Content.User_Name;
+                            $("#refer_name").val(refer_name);
+                        } else {
+                            var message = res.Message || "系统开小差了，请重试！";
+                            winner.appmsg.show(message);
+                        }
+                    }, error: function () {
+                        winner.loading.dismiss();
+                        winner.appmsg.show("系统异常");
+                    }
+                });
+            });
+        })
+    </script>
+
+</body>
+</html>
+

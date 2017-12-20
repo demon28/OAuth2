@@ -1,0 +1,19 @@
+﻿<!-- 已登录的授权UI -->
+<div class="user-list">
+    <div class="user-item">
+        <div class="user_profile table">
+            <img src="@OAuthContext.UserInfo.Avatar" alt="头像" class="avatar table-cell" />
+            <div class="profile-info table-cell">
+                <p>@OAuthContext.UserInfo.UserName</p>
+                <p>@OAuthContext.UserInfo.UserCode</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="width:100%;height:20px;"></div>
+<div>
+    <button type="submit" class="btn btn-block btn-primary" id="btnGranted">
+        <i class="icon-ok"></i>
+        确定授权
+    </button>
+</div>

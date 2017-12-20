@@ -1,0 +1,29 @@
+﻿@media only screen and (max-width: 768px) {
+    html, body { background-image: none; font-size: 12px; background-color: #fcfcfc; }
+    .pc-view { display: none; }
+    .mobile-view { display: block !important; }
+}
+.display-table { display: table; width: 100%;height:100%; }
+.multi-line-vertical-middle { display: table-cell; height: 100%; vertical-align: middle; width: 100%; }
+.mobile-view { display: none; }
+*, *:before, *:after { box-sizing: border-box; }
+.app-name { font-weight: bold; }
+.mobile-view { padding: 2rem; }
+div.hr { width: 100%; height: 1px; background: #e3e2e2; margin: 1px 0; }
+.app-logo { height: 160px; text-align: center; }
+
+.grant-right-list { margin-top: 1.5rem;   }
+.grant-right-list > div { font-size: 1.167rem; }
+.grant-right-list > ul { color: #808080;list-style-type:inherit;list-style-position:inside;padding-left:1rem; }
+.mobile-grant-section { margin-top: 2rem; }
+.grant-form .input-group { margin-bottom: 1rem; }
+.grant-form .input-group input { height: 2.5rem; line-height: 2.5rem; padding-left: 0.5rem; }
+.btn-grant { display: block; width: 100%; border: 0 none; padding: 0; margin: 0; background-color: #1AAD19; color: #f1f1f1; height: 3.5rem; line-height: 3.5rem; }
+.input-group input { width: 100%; }
+.app-user-info { margin: 1rem 0; }
+.user-avatar { position: absolute; width: 48px; }
+.user-avatar img { width: 48px; height: 48px; border-radius: 48px; border: 1px solid #ccc; }
+.user-account { margin-left: 70px; height: 48px; }
+.user-account p { margin: 0; padding: 0; }
+.user-account p:first-child { color: #000; font-weight: bold; }
+.user-account p:last-child { color: #808080; }

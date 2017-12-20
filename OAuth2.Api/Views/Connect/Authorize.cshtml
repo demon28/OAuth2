@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "英雄会登录";
+    List<OAuth2.Facade.ScopeRightResult> scopeRiths = ViewBag.ScopeRights as List<OAuth2.Facade.ScopeRightResult>;
+}
+@section scripts_or_links{
+    <link href="~/assets/css/authorization.css" rel="stylesheet" />
+    <link href="~/assets/css/grant_mobile_view.css" rel="stylesheet" />
+}
+@section scripts{
+    <script type="text/javascript">
+        //$(function () {
+            //$(".btn-grant").click(function () {
+                
+            //});
+        //});
+    </script>
+}
+<div class="pc-view">
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <p class="logo col-sm-6">
+                    <a>英雄会授权登录</a>
+                </p>
+                <p class="control-links col-sm-6">
+                    <a href="javascript:;">授权管理</a>
+                    <a href="javascript:;">申请接入</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <div class="row">
+
+                        @if (OAuthContext.IsLogined)
+                        {
+                            Html.RenderPartial("LoginedGrant");
+                        }
+                        else
+                        {
+                            Html.RenderPartial("LoginingGrant");
+                        }
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="partner_logo"></div>
+                    <div class="partner_title">
+                        <a href="@(OAuthContext.CurrentApp.APP_HOST)">@(OAuthContext.CurrentApp.APP_NAME)</a>将获得以下权限：
+                    </div>
+                    <div class="partner_auth">
+                        <ul>
+                            <li>
+                                <label>
+                                    <input type="hidden" value="0" name="takeall" />
+                                    <input type="checkbox" value="all" />
+                                    <span>全选</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="disabled">
+                                    <input type="checkbox" value="base_api" readonly="readonly" checked="checked" disabled="disabled" />
+                                    <span>获得你的公开信息（姓名、头像等）</span>
+                                </label>
+                            </li>
+                            @if (scopeRiths != null && scopeRiths.Count > 0)
+                            {
+                                for (int i = 0; i < scopeRiths.Count; i++)
+                                {
+                                    var rights = scopeRiths[i];
+                                    <li>
+                                        <label class="disabled">
+                                            <input type="checkbox" value="@rights.Right_Id" name="grants[@i].RightId" checked="checked" />
+                                            <input type="hidden" value="@rights.Right_Type" name="grants[@i].RightType" />
+                                            <span>@rights.Api_Name</span>
+                                        </label>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                    <div class="declarance">
+                        <span>授权后表示您已同意<a href="javascript:;">英雄会登录服务协议</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@{ Html.RenderPartial("_partial_mobile_grant");}

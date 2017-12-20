@@ -1,0 +1,68 @@
+﻿body, html { font-size: 12px; margin: 0; padding: 0; background: #f2f4f4; }
+input[type=button], input[type=submit], input[type=reset] { -webkit-appearance: none; }
+.img { vertical-align: middle; }
+.container { }
+.container .header { height: 160px; display: table; width: 100%; background: linear-gradient(45deg,#009bdb,#009bdb); }
+.container .header .logo-wrap { display: table-cell; margin: 0 auto; vertical-align: middle; text-align: center; }
+.container .header .logo-wrap img { vertical-align: middle; margin: 0 auto; display: block; width: 80px; height: 80px; }
+.container .header .logo-wrap span { font-size: 1.5rem; padding-top: 1rem; color: #fff; }
+.content-body { margin-top: 1rem; }
+.inline-form { position: relative; padding: 0 1rem; font-size: 1.167rem; margin: 0.5rem 0; }
+.inline-form > .inline-form-name { position: absolute; width: 5em; display: block; text-align: left; }
+.inline-form > .inline-form-control { margin-left: 6em; height: 100%; }
+.inline-form > .inline-form-control.addon { margin-right: 5em; }
+.inline-form > .inline-form-control input[type=text], .inline-form > .inline-form-control input[type=password] { border: 0 none; width: 10em; margin-right: 0.8rem; }
+.inline-form > .inline-form-control img { vertical-align: middle; }
+.form-row { height: 3rem; line-height: 3rem; }
+.form-row input[type=text], .form-row input[type=password] { height: 3rem; line-height: 3rem; padding: 0; border-color: transparent; }
+div.hr { width: 100%; height: 1px; background: #e3e2e2; margin: 1px 0; }
+div.hr-margin { margin: 1rem 0; }
+section { background: #fff; margin-bottom: 1rem; }
+section::after, section::before { display: table; clear: both; content: " "; }
+.disclaim { display: table; padding-left: 1rem; }
+.disclaim > label { display: table-cell; }
+.disclaim > label > input[type=checkbox] { margin: 0; padding: 0; }
+.disclaim > label > a { color: #ff7c6c; text-decoration: none; }
+.disclaim > label > * { vertical-align: middle; }
+.error-tips { height: 2rem; padding: 0 1rem; }
+.btn-group { margin-top: 1rem; padding: 1rem; }
+.btn { border: 0 none; width: 100%; height: 3rem; line-height: 3rem; border-radius: 0.3rem; text-align: center; }
+.btn-block { display: block; }
+.btn-red { background: #009bdb; color: #fff; }
+.btn-unsigned { border: 1px solid #ff7c6c; color: #ff7c6c; }
+a.btn { text-decoration: none; }
+#btnGetSmsCode { color: #000; text-decoration: none; }
+.w5 { width: 5em !important; }
+.margin-top-1 { margin-top: 1rem; }
+#sms_code { width: 9em; }
+.hide { display: none; }
+.redtext { color: red; }
+.h10 { height: 10rem; }
+.h15 { height: 15rem; }
+.h20 { height: 20rem; }
+.text-center { text-align: center; }
+.vertical-middle { display: table; width: 100%; }
+.vertical-middle > * { display: table-cell; vertical-align: middle; }
+.vertical-middle-element{font-size:1.5rem;}
+.vertical-middle-element a{text-decoration:none;color:#ff8c7c;}
+.back-color-fff{background:#fff;}
+.fullscreen{position:relative;}
+.fullscreen::after{position:fixed;width:100%;background:#fff;bottom:0;top:0;content:" ";display:block;z-index:-1;}
+/* ↑↑↑↑↑↑↑↑↑↑ iphone 5 ↑↑↑↑↑↑↑↑↑↑ */
+
+/* ↓↓↓↓↓↓↓↓↓↓ iphone 6 plus ↓↓↓↓↓ */
+@media only screen and (max-width: 414px) and (min-width:376px) {
+    .container .header .logo-wrap img { width: 106px; height: 106px; }
+    .container .header .logo-wrap span { font-size: 1.85rem; }
+    .inline-form > .inline-form-control input[type=text], .inline-form > .inline-form-control input[type=password] { width: 15em; }
+    #sms_code { width: 15em; }
+    .container .header { height: 200px; }
+}
+/* ↓↓↓↓↓↓↓↓↓↓ iphone 6 ↓↓↓↓↓↓↓↓↓↓ */
+@media only screen and (max-width: 375px) and (min-width:321px) {
+    .container .header .logo-wrap img { width: 106px; height: 106px; }
+    .container .header .logo-wrap span { font-size: 1.85rem; }
+    .inline-form > .inline-form-control input[type=text], .inline-form > .inline-form-control input[type=password] { width: 13em; }
+    #sms_code { width: 12em; }
+    .container .header { height: 200px; }
+}

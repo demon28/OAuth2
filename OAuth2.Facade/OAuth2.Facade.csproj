@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8DCC213-089E-406D-8DE3-613010632FFE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OAuth2.Facade</RootNamespace>
+    <AssemblyName>OAuth2.Facade</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EncodeDecode">
+      <HintPath>..\..\..\DLL_Library\EncodeDecode.dll</HintPath>
+    </Reference>
+    <Reference Include="Javirs.Common, Version=2.6.16.34543, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Javirs.Common.2.6.16\lib\net40\Javirs.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=1.2.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.1.2.3\lib\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OAuth2.Merchant, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OAuth2.Merchant.1.0.4\lib\net46\OAuth2.Merchant.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OAuth2.Token, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OAuth2.Token.1.0.4\lib\net46\OAuth2.Token.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Winner.ConfigurationManager">
+      <HintPath>..\..\..\DLL_Library\Winner.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Winner.Framework.Core, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\winner.core.1.2.1\lib\Winner.Framework.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Winner.Framework.Encrypt, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\winner.core.1.2.1\lib\Winner.Framework.Encrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Winner.Framework.Utils, Version=1.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\winner.core.1.2.1\lib\Winner.Framework.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Winner.SmsCenter.Client">
+      <HintPath>..\..\..\DLL_Library\Winner.SmsCenter.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Winner.User.Interface, Version=1.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Winner.User.Interface.1.0.7\lib\net40\Winner.User.Interface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Winner.WebApi.Contract, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Winner.WebApi.Contract.2.0.5\lib\net46\Winner.WebApi.Contract.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caches\CacheContainer.cs" />
+    <Compile Include="Caches\OAuthAppCache.cs" />
+    <Compile Include="Caches\ScopeCache.cs" />
+    <Compile Include="GrantProvider.cs" />
+    <Compile Include="IdentityVerificationFactory.cs" />
+    <Compile Include="LoginProvider.cs" />
+    <Compile Include="OAuthExtensionFunctions.cs" />
+    <Compile Include="OpenOAuthProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PullUserInfoProvider.cs" />
+    <Compile Include="RefreshTokenProvider.cs" />
+    <Compile Include="RegisterProvider.cs" />
+    <Compile Include="ScopeRightProvider.cs" />
+    <Compile Include="SmsValidateProvider.cs" />
+    <Compile Include="ThirdPartySignIn\ThirdPartyLoginFactory.cs" />
+    <Compile Include="ThirdPartySignIn\ThirdPartyBindingProvider.cs" />
+    <Compile Include="UserCreationProvider.cs" />
+    <Compile Include="UserPasswordManager.cs" />
+    <Compile Include="UserProfileModifyProvider.cs" />
+    <Compile Include="Verifications\PasswordValidVerification.cs" />
+    <Compile Include="Verifications\SmsValidCodeVerification.cs" />
+    <Compile Include="xUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OAuth2.DataAccess\OAuth2.DataAccess.csproj">
+      <Project>{a349de13-d9c1-405f-9ff4-56bb2deb0753}</Project>
+      <Name>OAuth2.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OAuth2.Entities\OAuth2.Entities.csproj">
+      <Project>{1c3f10e9-a91b-463e-9aaf-a3791c48ae8c}</Project>
+      <Name>OAuth2.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

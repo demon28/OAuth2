@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Api", "OAuth2.Api\OAuth2.Api.csproj", "{A0883F1E-D3A3-4F40-A19B-051B865F8BA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.DataAccess", "OAuth2.DataAccess\OAuth2.DataAccess.csproj", "{A349DE13-D9C1-405F-9FF4-56BB2DEB0753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Facade", "OAuth2.Facade\OAuth2.Facade.csproj", "{D8DCC213-089E-406D-8DE3-613010632FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Entities", "OAuth2.Entities\OAuth2.Entities.csproj", "{1C3F10E9-A91B-463E-9AAF-A3791C48AE8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.UnitTest", "OAuth2.UnitTest\OAuth2.UnitTest.csproj", "{A5EEAE69-E625-4FDB-8C67-1CBEFA7277B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Token", "OAuth2.Token\OAuth2.Token.csproj", "{B1ACAC64-2B91-4BEA-8C3C-9822A828CDB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuth2.Merchant", "OAuth2.Merchant\OAuth2.Merchant.csproj", "{2173BEFB-CAA0-4CE6-B056-244F17F80841}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0883F1E-D3A3-4F40-A19B-051B865F8BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0883F1E-D3A3-4F40-A19B-051B865F8BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0883F1E-D3A3-4F40-A19B-051B865F8BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0883F1E-D3A3-4F40-A19B-051B865F8BA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A349DE13-D9C1-405F-9FF4-56BB2DEB0753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A349DE13-D9C1-405F-9FF4-56BB2DEB0753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A349DE13-D9C1-405F-9FF4-56BB2DEB0753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A349DE13-D9C1-405F-9FF4-56BB2DEB0753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8DCC213-089E-406D-8DE3-613010632FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8DCC213-089E-406D-8DE3-613010632FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8DCC213-089E-406D-8DE3-613010632FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8DCC213-089E-406D-8DE3-613010632FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C3F10E9-A91B-463E-9AAF-A3791C48AE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C3F10E9-A91B-463E-9AAF-A3791C48AE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C3F10E9-A91B-463E-9AAF-A3791C48AE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C3F10E9-A91B-463E-9AAF-A3791C48AE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5EEAE69-E625-4FDB-8C67-1CBEFA7277B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5EEAE69-E625-4FDB-8C67-1CBEFA7277B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5EEAE69-E625-4FDB-8C67-1CBEFA7277B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5EEAE69-E625-4FDB-8C67-1CBEFA7277B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1ACAC64-2B91-4BEA-8C3C-9822A828CDB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1ACAC64-2B91-4BEA-8C3C-9822A828CDB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1ACAC64-2B91-4BEA-8C3C-9822A828CDB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1ACAC64-2B91-4BEA-8C3C-9822A828CDB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2173BEFB-CAA0-4CE6-B056-244F17F80841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2173BEFB-CAA0-4CE6-B056-244F17F80841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2173BEFB-CAA0-4CE6-B056-244F17F80841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2173BEFB-CAA0-4CE6-B056-244F17F80841}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 8
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = OAuth2.Api\\OAuth2.Api.csproj
+		SccProjectName1 = OAuth2.Api
+		SccLocalPath1 = OAuth2.Api
+		SccProjectUniqueName2 = OAuth2.DataAccess\\OAuth2.DataAccess.csproj
+		SccProjectName2 = OAuth2.DataAccess
+		SccLocalPath2 = OAuth2.DataAccess
+		SccProjectUniqueName3 = OAuth2.Entities\\OAuth2.Entities.csproj
+		SccProjectName3 = OAuth2.Entities
+		SccLocalPath3 = OAuth2.Entities
+		SccProjectUniqueName4 = OAuth2.Facade\\OAuth2.Facade.csproj
+		SccProjectName4 = OAuth2.Facade
+		SccLocalPath4 = OAuth2.Facade
+		SccProjectUniqueName5 = OAuth2.UnitTest\\OAuth2.UnitTest.csproj
+		SccProjectName5 = OAuth2.UnitTest
+		SccLocalPath5 = OAuth2.UnitTest
+		SccProjectUniqueName6 = OAuth2.Token\\OAuth2.Token.csproj
+		SccProjectName6 = OAuth2.Token
+		SccLocalPath6 = OAuth2.Token
+		SccProjectUniqueName7 = OAuth2.Merchant\\OAuth2.Merchant.csproj
+		SccProjectName7 = OAuth2.Merchant
+		SccLocalPath7 = OAuth2.Merchant
+	EndGlobalSection
+EndGlobal

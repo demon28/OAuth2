@@ -1,0 +1,78 @@
+﻿@{
+    List<OAuth2.Facade.ScopeRightResult> scopeRiths = ViewBag.ScopeRights as List<OAuth2.Facade.ScopeRightResult>;
+}
+<div class="mobile-view">
+    <div class="mobile-header-section">
+        <div class="app-logo display-table">
+            <div class="multi-line-vertical-middle">
+                <img src="@OAuthContext.CurrentApp.LOGO_URL" alt="@OAuthContext.CurrentApp.APP_NAME" style="width:80px;height:80px;" />
+            </div>
+        </div>
+        <div class="hr"></div>
+        @if (OAuthContext.IsLogined)
+        {
+            <div class="app-user-info">
+                <div class="">
+                    <div class="user-avatar">
+                        <img src="@OAuthContext.UserInfo.Avatar" />
+                    </div>
+                    <div class="user-account">
+                        <div class="display-table">
+                            <div class="multi-line-vertical-middle">
+                                <p>@OAuthContext.UserInfo.UserName</p>
+                                <p>@OAuthContext.UserInfo.UserCode</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hr"></div>
+        }
+        <div class="grant-right-list">
+            <div>登录后[<span class="app-name">@(OAuthContext.CurrentApp.APP_NAME)</span>]将获得以下权限</div>
+            <ul>
+                <li>获得你的公开信息（姓名、头像等）</li>
+                @if (scopeRiths != null && scopeRiths.Count > 0)
+                {
+                    for (int i = 0; i < scopeRiths.Count; i++)
+                    {
+                        var rights = scopeRiths[i];
+                        <li>@rights.Api_Name</li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="mobile-grant-section">
+            <input type="hidden" name="takeall" value="1" />
+            @if (!OAuthContext.IsLogined)
+            {
+                <div class="grant-form">
+                    <div class="input-group">
+                        <label>会员账号</label>
+                        <div>
+                            <input type="text" name="user_code" maxlength="11" />
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>登录密码</label>
+                        <div>
+                            <input type="text" name="login_pwd" maxlength="16" />
+                        </div>
+                    </div>
+                    <div class="submit-group">
+                        <button type="submit" class="btn-grant">登录并授权</button>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="grant-button">
+                    <button type="submit" class="btn-grant">确认授权</button>
+                </div>
+            }
+        </div>
+    }
+</div>

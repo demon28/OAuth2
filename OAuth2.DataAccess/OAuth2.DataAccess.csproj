@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A349DE13-D9C1-405F-9FF4-56BB2DEB0753}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OAuth2.DataAccess</RootNamespace>
+    <AssemblyName>OAuth2.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Winner.Framework.Core, Version=1.2.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\winner.core.1.2.1\lib\Winner.Framework.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Winner.Framework.Encrypt, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\winner.core.1.2.1\lib\Winner.Framework.Encrypt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Winner.Framework.Utils, Version=1.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\winner.core.1.2.1\lib\Winner.Framework.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GenerateCode\Tauth_Api_Group.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Api_Info.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_App.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Code.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Group_Right.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Scope.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Scope_Right.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Session.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Token.generate.cs" />
+    <Compile Include="GenerateCode\Tauth_Token_Right.generate.cs" />
+    <Compile Include="GenerateCode\Tnet_Pwd_Change_His.generate.cs" />
+    <Compile Include="GenerateCode\Tnet_User.generate.cs" />
+    <Compile Include="GenerateCode\Tnet_User_Auth.generate.cs" />
+    <Compile Include="GenerateCode\Vauth_Scope_Right.generate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tauth_Code.cs" />
+    <Compile Include="Tauth_Scope.cs" />
+    <Compile Include="Tauth_Scope_Right.cs" />
+    <Compile Include="Tauth_Token_Right.cs" />
+    <Compile Include="Tnet_User.cs" />
+    <Compile Include="Tnet_User_Auth.cs" />
+    <Compile Include="Vauth_Scope_Right.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OAuth2.Entities\OAuth2.Entities.csproj">
+      <Project>{1c3f10e9-a91b-463e-9aaf-a3791c48ae8c}</Project>
+      <Name>OAuth2.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

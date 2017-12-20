@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "RegisterSuccess";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>注册成功</title>
+    <link href="~/assets/css/wap_register.css" rel="stylesheet" />
+</head>
+<body class="fullscreen">
+    <div class="container">
+        <div class="header">
+            <div class="logo-wrap">
+                <img src="~/Resource/assets/images/wap_images/images/logo.png" alt="logo" />
+            </div>
+        </div>
+        <div class="vertical-middle h20 text-center back-color-fff">
+            <div class="vertical-middle-element">
+                <div>恭喜您，注册成功！</div>
+                <div style="padding:1rem;">
+                    <a href="@Url.Action("downapp", "wap")" class="btn btn-block btn-unsigned margin-top-1">免费下载APP</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
